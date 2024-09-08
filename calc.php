@@ -51,7 +51,7 @@
             <p class="math-formula">V = 6 937,5 / 1 000 000 = 0,0069375 ≈ 0,007 м³</p>
         </div>
     </div>
-
+    <div class="version">Версия: 0.0.01</div>
     <script src="scripts/main.js"></script>
 </body>
 </html>
