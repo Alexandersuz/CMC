@@ -28,9 +28,28 @@
             <input type="number" id="sideC" placeholder="Сторона C" min="0" step="any" aria-describedby="error-hint">
             <div class="tooltip" id="tooltipC">Введите длину стороны C в сантиметрах.</div>
         </div>
-        <div class="error-hint" id="error-hint">Значения сторон должны быть больше 0.</div>
+        <div class="error-hint" id="error-hint">
+            Значения сторон должны быть больше 0. Пожалуйста, исправьте ошибки и попробуйте снова.
+        </div>
         <div class="result" id="result">Объем: 0 м³</div>
         <button class="reset-btn" onclick="resetCalculator()">Сбросить</button>
+        <button class="theory-btn" onclick="toggleTheory()">Теория</button>
+    </div>
+
+    <!-- Выезжающее окно с информацией -->
+    <div class="theory-overlay" id="theory-overlay">
+        <div class="theory-content">
+            <button class="close-btn" onclick="toggleTheory()">×</button>
+            <h2>Коробка и её объём</h2>
+            <p>Коробка представляет собой прямоугольный параллелепипед с длиной <strong>A</strong>, шириной <strong>B</strong> и высотой (глубиной) <strong>C</strong>. Для вычисления её объёма используется следующая формула:</p>
+            <p><strong>Формула:</strong></p>
+            <p class="math-formula">V = A × B × C</p>
+            <p><strong>Пример расчёта:</strong></p>
+            <p>Предположим, что у нас есть коробка с шириной <strong>25 см</strong>, высотой <strong>15 см</strong> и глубиной <strong>18,5 см</strong>. Чтобы вычислить её объём, подставим значения в формулу:</p>
+            <p class="math-formula">V = 25 × 15 × 18,5 = 6 937,5 см³</p>
+            <p>Если нужно перевести объём в кубометры, разделите результат на <strong>1 000 000</strong>:</p>
+            <p class="math-formula">V = 6 937,5 / 1 000 000 = 0,0069375 ≈ 0,007 м³</p>
+        </div>
     </div>
 
     <script src="scripts/main.js"></script>
