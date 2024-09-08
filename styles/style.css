@@ -1,264 +1,392 @@
 /* Основной стиль для body */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Шрифт для всего документа */
-    background-color: #e8ecf1; /* Цвет фона страницы */
-    display: flex; /* Выравнивание содержимого по центру */
-    justify-content: center; /* Горизонтальное выравнивание по центру */
-    align-items: center; /* Вертикальное выравнивание по центру */
-    height: 100vh; /* Высота вьюпорта */
-    margin: 0; /* Удаление отступов по умолчанию */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--background-color);
 }
 
 /* Стили для калькулятора */
 .calculator {
-    background-color: #ffffff; /* Цвет фона калькулятора */
-    padding: 30px; /* Внутренние отступы */
-    border-radius: 15px; /* Скругление углов */
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Тень вокруг калькулятора */
-    text-align: center; /* Выравнивание текста по центру */
-    max-width: 400px; /* Максимальная ширина калькулятора */
-    width: 100%; /* Ширина калькулятора */
-    position: relative; /* Позиционирование для использования с tooltip */
+    background-color: var(--calculator-bg);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
 }
 
-/* Заголовок калькулятора */
+/* Стили для заголовка калькулятора */
 h1 {
-    font-size: 26px; /* Размер шрифта */
-    margin-bottom: 25px; /* Отступ снизу */
-    color: #333; /* Цвет текста */
+    font-size: 26px;
+    margin: 60px 0 25px; /* Отступ сверху и снизу */
+    color: var(--text-primary);
 }
 
 /* Стиль для блока с примером */
 .example {
-    font-size: 14px; /* Размер шрифта */
-    color: #666; /* Цвет текста */
-    margin-bottom: 20px; /* Отступ снизу */
-    text-align: center; /* Выравнивание текста по центру */
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 /* Стили для изображения в примере */
 .example img {
-    width: 40%; /* Ширина изображения */
-    margin: 10px auto; /* Отступы сверху и снизу, выравнивание по центру */
-    display: block; /* Отображение как блочный элемент */
+    width: 40%;
+    margin: 10px auto;
+    display: block;
 }
 
 /* Стили для меток ввода */
 label {
-    font-size: 14px; /* Размер шрифта */
-    color: #666; /* Цвет текста */
-    text-align: left; /* Выравнивание текста по левому краю */
-    display: block; /* Отображение как блочный элемент */
-    margin-bottom: 5px; /* Отступ снизу */
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-align: left;
+    display: block;
+    margin-bottom: 5px;
 }
 
 /* Стили для полей ввода */
 input[type="number"] {
-    width: calc(100% - 20px); /* Ширина поля ввода с учетом отступов */
-    padding: 12px; /* Внутренние отступы */
-    margin: 10px 0; /* Отступы сверху и снизу */
-    border: 1px solid #ddd; /* Граница поля ввода */
-    border-radius: 10px; /* Скругление углов */
-    font-size: 18px; /* Размер шрифта */
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Внутреннее освещение */
-    transition: all 0.2s ease; /* Плавный переход */
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid var(--input-border);
+    border-radius: 10px;
+    font-size: 18px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    background-color: var(--input-bg);
+    color: var(--text-primary);
 }
 
 /* Стили для поля ввода при фокусе */
 input[type="number"]:focus {
-    border-color: #FFB954; /* Новый цвет границы при фокусе */
-    outline: none; /* Удаление стандартного контура */
-    box-shadow: 0 0 8px rgba(255, 185, 84, 0.2); /* Новое внешнее освещение при фокусе */
-    transform: scale(1.02); /* Увеличение поля ввода при фокусе */
+    border-color: #FFB954;
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 185, 84, 0.2);
+    transform: scale(1.02);
 }
 
 /* Стили для плейсхолдера в поле ввода */
 input[type="number"]::placeholder {
-    color: #999; /* Цвет текста плейсхолдера */
+    color: var(--placeholder-text);
 }
 
 /* Стили для блока с результатом */
 .result {
-    margin-top: 30px; /* Отступ сверху */
-    font-size: 22px; /* Размер шрифта */
-    font-weight: bold; /* Жирное начертание */
-    color: #28a745; /* Цвет текста */
-    opacity: 0; /* Начальная непрозрачность */
-    transform: translateY(20px); /* Начальная позиция */
-    transition: opacity 0.4s ease, transform 0.4s ease; /* Плавный переход */
+    margin-top: 30px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #28a745;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 /* Видимость результата */
 .result.show {
-    opacity: 1; /* Полная непрозрачность */
-    transform: translateY(0); /* Позиция по умолчанию */
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Стили для кнопки сброса */
+.reset-btn,
+.theory-btn {
+    margin-top: 20px;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
 .reset-btn {
-    margin-top: 20px; /* Отступ сверху */
-    padding: 8px 18px; /* Внутренние отступы */
-    background-color: #28a745; /* Цвет фона */
-    color: white; /* Цвет текста */
-    border: none; /* Без границы */
-    border-radius: 5px; /* Скругление углов */
-    cursor: pointer; /* Курсор в виде указателя */
-    font-size: 16px; /* Размер шрифта */
-    transition: background-color 0.2s ease, transform 0.1s ease; /* Плавный переход */
+    background-color: var(--reset-btn-bg);
+    color: var(--reset-btn-text);
 }
 
 /* Эффект при наведении на кнопку сброса */
 .reset-btn:hover {
-    background-color: #218838; /* Темный цвет фона при наведении */
-    transform: scale(1.02); /* Увеличение кнопки при наведении */
+    background-color: var(--reset-btn-hover-bg);
+    transform: scale(1.02);
 }
 
 /* Эффект при нажатии на кнопку сброса */
 .reset-btn:active {
-    transform: scale(0.98); /* Уменьшение кнопки при нажатии */
-}
-
-/* Стили для полей с ошибками */
-.error {
-    border-color: #dc3545; /* Цвет границы для ошибки */
-    box-shadow: 0 0 8px rgba(220, 53, 69, 0.2); /* Внешнее освещение для ошибки */
-}
-
-/* Стили для подсказки об ошибке */
-.error-hint {
-    color: #721c24; /* Темно-красный цвет текста ошибки */
-    font-size: 14px; /* Размер шрифта */
-    font-weight: bold; /* Жирное начертание текста */
-    text-align: center; /* Выравнивание текста по центру */
-    margin-top: 10px; /* Отступ сверху */
-    padding: 10px; /* Внутренние отступы */
-    border: 1px solid #f5c6cb; /* Светло-красная граница */
-    border-radius: 5px; /* Скругление углов */
-    background-color: #f8d7da; /* Светло-красный фон */
-    opacity: 0; /* Начальная непрозрачность */
-    display: block; /* Отображение блока */
-    transition: opacity 0.5s ease; /* Плавный переход для появления и исчезновения */
-}
-
-/* Видимость подсказки об ошибке */
-.error-hint.show-error {
-    opacity: 1; /* Полная непрозрачность */
-}
-
-/* Стили для всплывающих подсказок */
-.tooltip {
-    position: absolute; /* Абсолютное позиционирование */
-    top: 0; /* Отступ сверху */
-    right: 0; /* Отступ справа */
-    background-color: #333; /* Цвет фона */
-    color: #fff; /* Цвет текста */
-    padding: 5px 10px; /* Внутренние отступы */
-    border-radius: 4px; /* Скругление углов */
-    font-size: 12px; /* Размер шрифта */
-    display: none; /* По умолчанию скрыто */
-    white-space: nowrap; /* Запрет переноса текста */
-}
-
-/* Видимость всплывающей подсказки */
-.tooltip.show {
-    display: block; /* Отображение подсказки */
-}
-
-/* Контейнер для ввода, содержащий всплывающую подсказку */
-.input-container {
-    position: relative; /* Относительное позиционирование для контейнера */
+    transform: scale(0.98);
 }
 
 /* Стили для кнопки Теория */
 .theory-btn {
-    margin-top: 20px;
-    padding: 8px 18px;
-    background-color: #007bff; /* Цвет фона кнопки Теория */
-    color: white; /* Цвет текста кнопки */
-    border: none; /* Без границы */
-    border-radius: 5px; /* Скругление углов */
-    cursor: pointer; /* Курсор в виде указателя */
-    font-size: 16px; /* Размер шрифта */
-    transition: background-color 0.2s ease, transform 0.1s ease; /* Плавный переход */
+    background-color: var(--theory-btn-bg);
+    color: var(--theory-btn-text);
 }
 
 /* Эффект при наведении на кнопку Теория */
 .theory-btn:hover {
-    background-color: #0056b3; /* Темный цвет фона при наведении */
-    transform: scale(1.02); /* Увеличение кнопки при наведении */
+    background-color: var(--theory-btn-hover-bg);
+    transform: scale(1.02);
 }
 
 /* Эффект при нажатии на кнопку Теория */
 .theory-btn:active {
-    transform: scale(0.98); /* Уменьшение кнопки при нажатии */
+    transform: scale(0.98);
+}
+
+/* Стили для полей с ошибками */
+.error {
+    border-color: var(--error-border);
+    box-shadow: 0 0 8px var(--error-shadow);
+}
+
+/* Стили для подсказки об ошибке */
+.error-hint {
+    color: var(--error-text);
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid var(--error-border);
+    border-radius: 5px;
+    background-color: var(--error-bg);
+    opacity: 0;
+    display: block;
+    transition: opacity 0.5s ease;
+}
+
+/* Видимость подсказки об ошибке */
+.error-hint.show-error {
+    opacity: 1;
+}
+
+/* Стили для всплывающих подсказок */
+.tooltip {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--tooltip-bg);
+    color: var(--tooltip-text);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    display: none;
+    white-space: nowrap;
+}
+
+/* Видимость всплывающей подсказки */
+.tooltip.show {
+    display: block;
+}
+
+/* Контейнер для ввода, содержащий всплывающую подсказку */
+.input-container {
+    position: relative;
 }
 
 /* Стили для выезжающего окна */
 .theory-overlay {
-    position: fixed; /* Фиксированное позиционирование */
-    top: 0; /* Отступ сверху */
-    right: -100%; /* Начальное положение вне экрана */
-    width: 300px; /* Ширина окна */
-    height: 100%; /* Высота окна */
-    background-color: #ffffff; /* Цвет фона окна */
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2); /* Тень слева */
-    transition: right 0.5s ease; /* Плавное выезжание */
-    overflow-y: auto; /* Прокрутка по вертикали */
-    z-index: 1000; /* Поверх всех элементов */
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100%;
+    background-color: var(--theory-overlay-bg);
+    box-shadow: -2px 0 10px var(--theory-overlay-shadow);
+    transition: right 0.3s ease-out; /* Быстрый выезд */
+    overflow-y: auto;
+    z-index: 1000;
 }
 
 /* Положение выезжающего окна при открытии */
 .theory-overlay.open {
-    right: 0; /* Положение при открытии */
+    right: 0;
 }
 
 /* Стили для содержимого окна */
 .theory-content {
-    padding: 20px; /* Внутренние отступы */
-    position: relative; /* Относительное позиционирование */
+    padding: 20px;
+    position: relative;
+    color: var(--theory-content-text);
 }
 
 /* Стили для кнопки закрытия окна */
 .close-btn {
-    position: absolute; /* Абсолютное позиционирование */
-    top: 10px; /* Отступ сверху */
-    right: 10px; /* Отступ справа */
-    background: none; /* Без фона */
-    border: none; /* Без границы */
-    font-size: 24px; /* Размер шрифта */
-    color: #333; /* Цвет текста */
-    cursor: pointer; /* Курсор в виде указателя */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--close-btn-text);
+    cursor: pointer;
 }
 
 /* Эффект при наведении на кнопку закрытия окна */
 .close-btn:hover {
-    color: #dc3545; /* Цвет текста при наведении */
+    color: var(--close-btn-hover);
 }
 
 /* Стили для математических формул */
 .math-formula {
-    font-family: 'Courier New', Courier, monospace; /* Шрифт для формул */
-    font-size: 18px; /* Размер шрифта */
-    color: #333; /* Цвет текста */
-    text-align: center; /* Выравнивание текста по центру */
-    margin: 10px 0; /* Отступы сверху и снизу */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    color: var(--text-primary);
+    text-align: center;
+    margin: 10px 0;
 }
 
 /* Стили для отображения версии */
 .version {
-    position: fixed; /* Фиксированное позиционирование */
-    bottom: 10px; /* Отступ от низа */
-    right: 10px; /* Отступ от правого края */
-    font-size: 12px; /* Размер шрифта */
-    color: #999; /* Цвет текста */
-    background: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон для лучшей видимости */
-    padding: 5px 10px; /* Внутренние отступы */
-    border-radius: 3px; /* Скругление углов (уменьшено) */
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1); /* Тень для выделения (уменьшена) */
-    z-index: 1000; /* Поверх всех элементов */
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: var(--version-text);
+    background: var(--version-bg);
+    padding: 5px 10px;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
+/* Переключение темы */
+:root {
+    --background-color: #F3F6FD;
+    --calculator-bg: #FFFFFF;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --input-border: #DDDDDD;
+    --placeholder-text: #999999;
+    --reset-btn-bg: #28a745;
+    --reset-btn-text: #FFFFFF;
+    --reset-btn-hover-bg: #218838;
+    --error-border: #dc3545;
+    --error-shadow: rgba(220, 53, 69, 0.2);
+    --error-text: #721c24;
+    --error-bg: #f8d7da;
+    --tooltip-bg: #333333;
+    --tooltip-text: #FFFFFF;
+    --theory-btn-bg: #007bff;
+    --theory-btn-text: #FFFFFF;
+    --theory-btn-hover-bg: #0056b3;
+    --theory-overlay-bg: #FFFFFF;
+    --theory-overlay-shadow: rgba(0, 0, 0, 0.2);
+    --theory-content-text: #333333;
+    --close-btn-text: #333333;
+    --close-btn-hover: #dc3545;
+    --version-text: #999999;
+    --version-bg: rgba(255, 255, 255, 0.8);
+    --input-bg: #FFFFFF; /* Фон поля ввода по умолчанию */
+}
 
+/* Темная тема */
+body.dark-mode {
+    --background-color: #111827;
+    --calculator-bg: #1F2937;
+    --text-primary: #FFFFFF;
+    --text-secondary: #CCCCCC;
+    --input-border: #666666;
+    --placeholder-text: #999999;
+    --reset-btn-bg: #28a745;
+    --reset-btn-text: #FFFFFF;
+    --reset-btn-hover-bg: #218838;
+    --error-border: #dc3545;
+    --error-shadow: rgba(220, 53, 69, 0.5);
+    --error-text: #f8d7da;
+    --error-bg: #721c24;
+    --tooltip-bg: #FFFFFF;
+    --tooltip-text: #333333;
+    --theory-btn-bg: #0056b3;
+    --theory-btn-text: #FFFFFF;
+    --theory-btn-hover-bg: #003d7a;
+    --theory-overlay-bg: #1F2937;
+    --theory-overlay-shadow: rgba(0, 0, 0, 0.2);
+    --theory-content-text: #FFFFFF;
+    --close-btn-text: #FFFFFF;
+    --close-btn-hover: #dc3545;
+    --version-text: #666666;
+    --version-bg: rgba(0, 0, 0, 0.8);
+    --input-bg: #222222; /* Фон поля ввода в темной теме */
+}
 
+/* Стили для переключателя темы */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+}
 
+/* Скрытие реального чекбокса */
+.theme-toggle input[type="checkbox"] {
+    display: none;
+}
 
+/* Стили для иконок */
+.theme-toggle i {
+    font-size: 20px;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+}
+
+/* Стили для лейбла переключателя */
+.theme-toggle label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 25px;
+    background-color: var(--toggle-bg);
+    border-radius: 15px;
+    position: relative;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Индикатор переключателя */
+.theme-toggle label::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 19px;
+    height: 19px;
+    background-color: var(--toggle-thumb-bg);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+/* Переключение темной темы */
+input[type="checkbox"]:checked + label {
+    background-color: var(--toggle-bg-dark);
+}
+
+/* Переключение положения индикатора */
+input[type="checkbox"]:checked + label::before {
+    transform: translateX(25px);
+}
+
+/* Стили для фона переключателя */
+:root {
+    --toggle-bg: #DDDDDD;
+    --toggle-thumb-bg: #FFFFFF;
+    --toggle-bg-dark: #444444;
+    --toggle-thumb-bg-dark: #333333;
+}
+body.dark-mode {
+    --toggle-bg: #444444;
+    --toggle-thumb-bg: #333333;
+}
