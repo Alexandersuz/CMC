@@ -91,7 +91,7 @@
         <button class="close-history-btn" onclick="toggleHistory()">×</button>
         <h2>История расчетов</h2>
         <div id="history-list" class="history-list"></div>
-        <button class="clear-history-btn" onclick="clearHistory()">Очистить историю</button>
+    <button class="clear-history-btn" onclick="clearHistory()" id="clear-history-btn" style="display: none;">Очистить историю</button>
     </div>
 </div>
 

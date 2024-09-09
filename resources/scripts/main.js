@@ -1,6 +1,6 @@
 // Версия проекта
 document.addEventListener('DOMContentLoaded', () => {
-    const currentVersion = '0.0.05'; // Задайте актуальную версию здесь
+    const currentVersion = '0.0.06'; // Задайте актуальную версию здесь
     document.getElementById('version-number').textContent = currentVersion;
 });
 
@@ -127,9 +127,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+
 // Переключение видимости секции истории расчетов
 function toggleHistory() {
     document.getElementById('history-overlay').classList.toggle('open');
+    updateClearHistoryButtonVisibility(); // Обновляем видимость кнопки при открытии окна
 }
 
 // Сохранение расчета в историю
@@ -151,12 +154,27 @@ function saveCalculation(sideA, sideB, sideC, volume) {
     `;
     
     historyList.appendChild(historyItem);
+    updateClearHistoryButtonVisibility(); // Обновляем видимость кнопки после добавления расчета
 }
 
 // Очистка истории расчетов с подтверждением
 function clearHistory() {
     if (confirm('Вы уверены, что хотите очистить историю расчетов?')) {
         document.getElementById('history-list').innerHTML = '';
+        updateClearHistoryButtonVisibility(); // Обновляем видимость кнопки после очистки
+    }
+}
+
+// Обновление видимости кнопки "Очистить историю"
+function updateClearHistoryButtonVisibility() {
+    const historyList = document.getElementById('history-list');
+    const clearHistoryBtn = document.getElementById('clear-history-btn');
+    const minHistoryItemsForClearBtn = 5; // Минимальное количество расчетов для отображения кнопки
+
+    if (historyList.children.length >= minHistoryItemsForClearBtn) {
+        clearHistoryBtn.style.display = 'block';
+    } else {
+        clearHistoryBtn.style.display = 'none';
     }
 }
 
