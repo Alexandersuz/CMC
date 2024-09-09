@@ -258,18 +258,18 @@ input[type="number"]::placeholder {
     --text-secondary: #666666;
     --input-border: #DDDDDD;
     --placeholder-text: #999999;
-    --reset-btn-bg: #28a745;
-    --reset-btn-text: #FFFFFF;
-    --reset-btn-hover-bg: #218838;
+    --reset-btn-bg: #FF6F61; /* Цвет фона кнопки сбросить */
+    --reset-btn-text: #FFFFFF; /* Цвет текста кнопки сбросить */
+    --reset-btn-hover-bg: #FF3D2E; /* Цвет фона кнопки сбросить при наведении */
     --error-border: #dc3545;
     --error-shadow: rgba(220, 53, 69, 0.2);
     --error-text: #721c24;
     --error-bg: #f8d7da;
     --tooltip-bg: #333333;
     --tooltip-text: #FFFFFF;
-    --theory-btn-bg: #007bff;
-    --theory-btn-text: #FFFFFF;
-    --theory-btn-hover-bg: #0056b3;
+    --theory-btn-bg: #007bff; /* Цвет фона кнопки теория */
+    --theory-btn-text: #FFFFFF; /* Цвет текста кнопки теория */
+    --theory-btn-hover-bg: #0056b3; /* Цвет фона кнопки теория при наведении */
     --theory-overlay-bg: #FFFFFF;
     --theory-overlay-shadow: rgba(0, 0, 0, 0.2);
     --theory-content-text: #333333;
@@ -295,18 +295,18 @@ body.dark-mode {
     --text-secondary: #CCCCCC;
     --input-border: #666666;
     --placeholder-text: #999999;
-    --reset-btn-bg: #28a745;
-    --reset-btn-text: #FFFFFF;
-    --reset-btn-hover-bg: #218838;
+    --reset-btn-bg: #FF6F61; /* Цвет фона кнопки сбросить */
+    --reset-btn-text: #FFFFFF; /* Цвет текста кнопки сбросить */
+    --reset-btn-hover-bg: #FF3D2E; /* Цвет фона кнопки сбросить при наведении */
     --error-border: #dc3545;
     --error-shadow: rgba(220, 53, 69, 0.5);
     --error-text: #f8d7da;
     --error-bg: #721c24;
     --tooltip-bg: #FFFFFF;
     --tooltip-text: #333333;
-    --theory-btn-bg: #0056b3;
-    --theory-btn-text: #FFFFFF;
-    --theory-btn-hover-bg: #003d7a;
+    --theory-btn-bg: #007bff; /* Цвет фона кнопки теория */
+    --theory-btn-text: #FFFFFF; /* Цвет текста кнопки теория */
+    --theory-btn-hover-bg: #0056b3; /* Цвет фона кнопки теория при наведении */
     --theory-overlay-bg: #1F2937;
     --theory-overlay-shadow: rgba(0, 0, 0, 0.2);
     --theory-content-text: #FFFFFF;
