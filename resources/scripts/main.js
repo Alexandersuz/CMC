@@ -135,6 +135,8 @@ function toggleHistory() {
     updateClearHistoryButtonVisibility(); // Обновляем видимость кнопки при открытии окна
 }
 
+
+
 // Сохранение расчета в историю
 function saveCalculation(sideA, sideB, sideC, volume) {
     const now = new Date();
@@ -145,17 +147,22 @@ function saveCalculation(sideA, sideB, sideC, volume) {
     const historyItem = document.createElement('div');
     historyItem.classList.add('history-item');
     historyItem.innerHTML = `
-        <div>Время: ${time}</div>
-        <div>Дата: ${date}</div>
+        <div class="history-header">
+            <span class="history-time">Время: ${time}</span>
+            <span class="history-date">Дата: ${date}</span>
+        </div>
         <div>А: ${sideA} м</div>
         <div>В: ${sideB} м</div>
         <div>С: ${sideC} м</div>
-        <div>Объем: ${volume.toFixed(3)} м³</div>
+        <div class="history-volume">Объем: ${volume.toFixed(3)} м³</div>
     `;
     
     historyList.appendChild(historyItem);
     updateClearHistoryButtonVisibility(); // Обновляем видимость кнопки после добавления расчета
 }
+
+
+
 
 // Очистка истории расчетов с подтверждением
 function clearHistory() {

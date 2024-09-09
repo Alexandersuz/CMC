@@ -451,6 +451,8 @@ body.dark-mode #package-svg-dark {
     color: var(--close-btn-hover);
 }
 
+
+
 /* Стили для мини-контейнеров истории расчетов */
 .history-item {
     margin-bottom: 15px;
@@ -458,11 +460,40 @@ body.dark-mode #package-svg-dark {
     border: 1px solid var(--input-border);
     border-radius: 5px;
     background-color: var(--calculator-bg);
+    position: relative;
 }
 
-.history-item + .history-item {
-    border-top: 1px solid var(--input-border);
+/* Стили для заголовка элемента истории */
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px; /* Отступ между заголовком и содержимым */
 }
+
+/* Стили для времени */
+.history-time {
+    font-size: 12px;
+    color: var(--history-time-color);
+    align-self: flex-start; /* Выравнивание по верху */
+}
+
+/* Стили для даты */
+.history-date {
+    font-size: 12px;
+    color: var(--history-date-color);
+    align-self: flex-start; /* Выравнивание по верху */
+}
+
+/* Стили для объема */
+.history-volume {
+    font-weight: bold;
+    color: var(--history-volume-color);
+    margin-top: 8px;
+}
+
+
+
+
 
 /* Стили для кнопки очистки истории */
 .clear-history-btn {
@@ -485,6 +516,9 @@ body.dark-mode #package-svg-dark {
 .clear-history-btn:active {
     transform: scale(0.98);
 }
+
+
+
 
 /* Стили для кнопки истории расчетов */
 .history-btn {
