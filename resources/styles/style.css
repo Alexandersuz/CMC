@@ -6,12 +6,12 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: var(--background-color);
+    background-color: var(--background-color); /* Фоновый цвет страницы */
 }
 
 /* Стили для калькулятора */
 .calculator {
-    background-color: var(--calculator-bg);
+    background-color: var(--calculator-bg); /* Цвет фона калькулятора */
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -25,13 +25,13 @@ body {
 h1 {
     font-size: 26px;
     margin: 60px 0 25px;
-    color: var(--text-primary);
+    color: var(--text-primary); /* Цвет заголовка */
 }
 
 /* Стили для блока с примером */
 .example {
     font-size: 14px;
-    color: var(--text-secondary);
+    color: var(--text-secondary); /* Цвет текста примера */
     margin-bottom: 20px;
     text-align: center;
 }
@@ -46,7 +46,7 @@ h1 {
 /* Стили для меток ввода */
 label {
     font-size: 14px;
-    color: var(--text-secondary);
+    color: var(--text-secondary); /* Цвет меток ввода */
     text-align: left;
     display: block;
     margin-bottom: 5px;
@@ -57,13 +57,13 @@ input[type="number"] {
     width: calc(100% - 20px);
     padding: 12px;
     margin: 10px 0;
-    border: 1px solid var(--input-border);
+    border: 1px solid var(--input-border); /* Цвет границы полей ввода */
     border-radius: 10px;
     font-size: 18px;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: all 0.2s ease;
-    background-color: var(--input-bg);
-    color: var(--text-primary);
+    background-color: var(--input-bg); /* Цвет фона полей ввода */
+    color: var(--text-primary); /* Цвет текста полей ввода */
 }
 
 /* Стили для поля ввода при фокусе */
@@ -76,7 +76,7 @@ input[type="number"]:focus {
 
 /* Стили для плейсхолдера в поле ввода */
 input[type="number"]::placeholder {
-    color: var(--placeholder-text);
+    color: var(--placeholder-text); /* Цвет плейсхолдера */
 }
 
 /* Стили для блока с результатом */
@@ -84,7 +84,7 @@ input[type="number"]::placeholder {
     margin-top: 30px;
     font-size: 22px;
     font-weight: bold;
-    color: #28a745;
+    color: #28a745; /* Цвет текста результата */
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.4s ease, transform 0.4s ease;
@@ -109,12 +109,12 @@ input[type="number"]::placeholder {
 }
 
 .reset-btn {
-    background-color: var(--reset-btn-bg);
-    color: var(--reset-btn-text);
+    background-color: var(--reset-btn-bg); /* Цвет фона кнопки сброса */
+    color: var(--reset-btn-text); /* Цвет текста кнопки сброса */
 }
 
 .reset-btn:hover {
-    background-color: var(--reset-btn-hover-bg);
+    background-color: var(--reset-btn-hover-bg); /* Цвет фона кнопки сброса при наведении */
     transform: scale(1.02);
 }
 
@@ -123,12 +123,12 @@ input[type="number"]::placeholder {
 }
 
 .theory-btn {
-    background-color: var(--theory-btn-bg);
-    color: var(--theory-btn-text);
+    background-color: var(--theory-btn-bg); /* Цвет фона кнопки теории */
+    color: var(--theory-btn-text); /* Цвет текста кнопки теории */
 }
 
 .theory-btn:hover {
-    background-color: var(--theory-btn-hover-bg);
+    background-color: var(--theory-btn-hover-bg); /* Цвет фона кнопки теории при наведении */
     transform: scale(1.02);
 }
 
@@ -138,21 +138,21 @@ input[type="number"]::placeholder {
 
 /* Стили для полей с ошибками */
 .error {
-    border-color: var(--error-border);
-    box-shadow: 0 0 8px var(--error-shadow);
+    border-color: var(--error-border); /* Цвет границы полей с ошибками */
+    box-shadow: 0 0 8px var(--error-shadow); /* Тень для полей с ошибками */
 }
 
 /* Стили для подсказки об ошибке */
 .error-hint {
-    color: var(--error-text);
+    color: var(--error-text); /* Цвет текста подсказки об ошибке */
     font-size: 14px;
     font-weight: bold;
     text-align: center;
     margin-top: 10px;
     padding: 10px;
-    border: 1px solid var(--error-border);
+    border: 1px solid var(--error-border); /* Цвет границы подсказки об ошибке */
     border-radius: 5px;
-    background-color: var(--error-bg);
+    background-color: var(--error-bg); /* Цвет фона подсказки об ошибке */
     opacity: 0;
     display: block;
     transition: opacity 0.5s ease;
@@ -167,8 +167,8 @@ input[type="number"]::placeholder {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: var(--tooltip-bg);
-    color: var(--tooltip-text);
+    background-color: var(--tooltip-bg); /* Цвет фона всплывающей подсказки */
+    color: var(--tooltip-text); /* Цвет текста всплывающей подсказки */
     padding: 5px 10px;
     border-radius: 4px;
     font-size: 12px;
@@ -192,8 +192,8 @@ input[type="number"]::placeholder {
     right: -100%;
     width: 300px;
     height: 100%;
-    background-color: var(--theory-overlay-bg);
-    box-shadow: -2px 0 10px var(--theory-overlay-shadow);
+    background-color: var(--theory-overlay-bg); /* Цвет фона выезжающего окна */
+    box-shadow: -2px 0 10px var(--theory-overlay-shadow); /* Тень выезжающего окна */
     transition: right 0.3s ease-out;
     overflow-y: auto;
     z-index: 1000;
@@ -208,13 +208,14 @@ input[type="number"]::placeholder {
     padding: 20px;
     position: relative;
     color: var(--theory-content-text);
+    padding-top: 25px; /* Добавлен верхний отступ, чтобы избежать перекрытия кнопкой */
 }
 
 /* Стили для кнопки закрытия окна */
 .close-btn {
     position: absolute;
     top: 10px;
-    right: 10px;
+    left: 10px; /* Перемещено влево */
     background: none;
     border: none;
     font-size: 24px;
@@ -230,7 +231,7 @@ input[type="number"]::placeholder {
 .math-formula {
     font-family: 'Courier New', Courier, monospace;
     font-size: 18px;
-    color: var(--text-primary);
+    color: var(--text-primary); /* Цвет математических формул */
     text-align: center;
     margin: 10px 0;
 }
@@ -241,8 +242,8 @@ input[type="number"]::placeholder {
     bottom: 10px;
     right: 10px;
     font-size: 12px;
-    color: var(--version-text);
-    background: var(--version-bg);
+    color: var(--version-text); /* Цвет текста версии */
+    background: var(--version-bg); /* Цвет фона версии */
     padding: 5px 10px;
     border-radius: 3px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
@@ -281,6 +282,9 @@ input[type="number"]::placeholder {
     --toggle-thumb-bg: #FFFFFF;
     --toggle-bg-dark: #444444;
     --toggle-thumb-bg-dark: #333333;
+        --history-btn-bg: #17a2b8; /* Цвет фона кнопки истории */
+    --history-btn-text: #FFFFFF; /* Цвет текста кнопки истории */
+    --history-btn-hover-bg: #138496; /* Цвет фона кнопки при наведении */
 }
 
 /* Темная тема */
@@ -313,6 +317,9 @@ body.dark-mode {
     --input-bg: #222222;
     --toggle-bg: #444444;
     --toggle-thumb-bg: #333333;
+        --history-btn-bg: #17a2b8; /* Цвет фона кнопки истории */
+    --history-btn-text: #FFFFFF; /* Цвет текста кнопки истории */
+    --history-btn-hover-bg: #138496; /* Цвет фона кнопки при наведении */
 }
 
 /* Стили для переключателя темы */
@@ -332,7 +339,7 @@ body.dark-mode {
 
 .theme-toggle i {
     font-size: 20px;
-    color: var(--text-primary);
+    color: var(--text-primary); /* Цвет иконки переключателя темы */
     transition: color 0.3s ease;
 }
 
@@ -342,7 +349,7 @@ body.dark-mode {
     justify-content: center;
     width: 50px;
     height: 25px;
-    background-color: var(--toggle-bg);
+    background-color: var(--toggle-bg); /* Цвет фона переключателя темы */
     border-radius: 15px;
     position: relative;
     margin: 0 10px;
@@ -357,7 +364,7 @@ body.dark-mode {
     left: 3px;
     width: 19px;
     height: 19px;
-    background-color: var(--toggle-thumb-bg);
+    background-color: var(--toggle-thumb-bg); /* Цвет ползунка переключателя темы */
     border-radius: 50%;
     transition: transform 0.3s ease;
 }
@@ -373,7 +380,7 @@ input[type="checkbox"]:checked + label::before {
 /* Стили для блока с пакетом */
 .package {
     font-size: 14px;
-    color: var(--text-secondary);
+    color: var(--text-secondary); /* Цвет текста блока с пакетом */
     margin: 10px 0 20px;
     text-align: center;
 }
@@ -396,4 +403,107 @@ body.dark-mode #package-svg-light {
 
 body.dark-mode #package-svg-dark {
     display: block;
+}
+
+
+
+
+/* Стили для выезжающего окна истории расчетов */
+.history-overlay {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Начальное положение за пределами экрана */
+    width: 300px;
+    height: 100%;
+    background-color: var(--theory-overlay-bg);
+    box-shadow: 2px 0 10px var(--theory-overlay-shadow);
+    transition: left 0.3s ease-out;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.history-overlay.open {
+    left: 0;
+}
+
+/* Стили для содержимого окна истории */
+.history-content {
+    padding: 20px;
+    position: relative;
+    color: var(--theory-content-text);
+    padding-top: 25px; /* Отступ сверху для кнопки закрытия */
+}
+
+/* Стили для кнопки закрытия */
+.close-history-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Перемещаем кнопку в правый верхний угол */
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--close-btn-text);
+    cursor: pointer;
+    z-index: 1001; /* Убедитесь, что кнопка находится поверх других элементов */
+}
+
+.close-history-btn:hover {
+    color: var(--close-btn-hover);
+}
+
+/* Стили для мини-контейнеров истории расчетов */
+.history-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid var(--input-border);
+    border-radius: 5px;
+    background-color: var(--calculator-bg);
+}
+
+.history-item + .history-item {
+    border-top: 1px solid var(--input-border);
+}
+
+/* Стили для кнопки очистки истории */
+.clear-history-btn {
+    margin-top: 20px;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: var(--reset-btn-bg);
+    color: var(--reset-btn-text);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.clear-history-btn:hover {
+    background-color: var(--reset-btn-hover-bg);
+    transform: scale(1.02);
+}
+
+.clear-history-btn:active {
+    transform: scale(0.98);
+}
+
+/* Стили для кнопки истории расчетов */
+.history-btn {
+    margin-top: 20px;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    background-color: var(--history-btn-bg);
+    color: var(--history-btn-text);
+}
+
+.history-btn:hover {
+    background-color: var(--history-btn-hover-bg);
+    transform: scale(1.02);
+}
+
+.history-btn:active {
+    transform: scale(0.98);
 }

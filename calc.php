@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Калькулятор кубов</title>
-    <link rel="stylesheet" href="resources/styles/style.css">
+    
+    
+    
+    
+
+    <link rel="stylesheet" href="resources/styles/style.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
 </head>
 <body>
     <div class="calculator">
@@ -17,10 +23,14 @@
                 <label for="theme-switcher"></label>
                 <i class="fa fa-moon"></i>
             </div>
+            
+            
+
+            
         </div>
 
         <div class="example">
-            Для измерения объема коробки измерьте его длину (А), ширину (B) и высоту (C) в сантиметрах, и введите полученные данные в таблицу:
+Для измерения объема коробки измерьте его длину (А), ширину (B) и высоту (C) в сантиметрах, и введите полученные данные в соответствующие поля в таблице. После этого таблица вам  покажет объём в м³
             
             <div class="package">
                 <svg id="package-svg-light" class="theme-svg" viewBox="0 0 512.003 512.003" xmlns="http://www.w3.org/2000/svg">
@@ -45,21 +55,21 @@
         </div>
 
         <div class="input-container">
-            <label for="sideA">Введите длину стороны A (см):</label>
-            <input type="number" id="sideA" placeholder="Сторона A" min="0" step="any" aria-describedby="error-hint">
+            <input type="number" id="sideA" placeholder="Длина стороны A" min="0" step="any" aria-describedby="error-hint">
             <div class="tooltip" id="tooltipA">Введите длину стороны A в сантиметрах.</div>
+            <label for="sideA">Введите длину стороны A (см):</label>
         </div>
 
         <div class="input-container">
-            <label for="sideB">Введите длину стороны B (см):</label>
-            <input type="number" id="sideB" placeholder="Сторона B" min="0" step="any" aria-describedby="error-hint">
+            <input type="number" id="sideB" placeholder="Ширина стороны B" min="0" step="any" aria-describedby="error-hint">
             <div class="tooltip" id="tooltipB">Введите длину стороны B в сантиметрах.</div>
+            <label for="sideB">Введите длину стороны B (см):</label>
         </div>
 
         <div class="input-container">
-            <label for="sideC">Введите длину стороны C (см):</label>
-            <input type="number" id="sideC" placeholder="Сторона C" min="0" step="any" aria-describedby="error-hint">
+            <input type="number" id="sideC" placeholder="Высота стороны C" min="0" step="any" aria-describedby="error-hint">
             <div class="tooltip" id="tooltipC">Введите длину стороны C в сантиметрах.</div>
+            <label for="sideC">Введите длину стороны C (см):</label>
         </div>
 
         <div class="error-hint" id="error-hint">
@@ -69,12 +79,24 @@
         <div class="result" id="result">Объем: 0 м³</div>
 
         <div class="actions">
+            <button class="history-btn" onclick="toggleHistory()">История</button>
             <button class="reset-btn" onclick="resetCalculator()">Сбросить</button>
             <button class="theory-btn" onclick="toggleTheory()">Теория</button>
         </div>
     </div>
+    
+    <!-- Секция истории расчетов -->
+<div id="history-overlay" class="history-overlay">
+    <div class="history-content">
+        <button class="close-history-btn" onclick="toggleHistory()">×</button>
+        <h2>История расчетов</h2>
+        <div id="history-list" class="history-list"></div>
+        <button class="clear-history-btn" onclick="clearHistory()">Очистить историю</button>
+    </div>
+</div>
 
-    <!-- Выезжающее окно с информацией -->
+
+    <!-- Секция с теорией -->
     <div class="theory-overlay" id="theory-overlay">
         <div class="theory-content">
             <button class="close-btn" onclick="toggleTheory()">×</button>
@@ -90,7 +112,8 @@
         </div>
     </div>
 
-    <div class="version">Версия: 0.0.04</div>
+<div class="version">Версия: <span id="version-number"></span></div>
+
     
     <script src="resources/scripts/main.js"></script>
 </body>
