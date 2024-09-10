@@ -1,7 +1,7 @@
 {
   "page-title": "Cube Calculator",
   "calculator-title": "Cube Calculator",
-  "example-text": "To measure the volume of a box, measure its length (A), width (B), and height (C) in centimeters, and enter the values into the corresponding fields in the table. The table will then show you the volume in m³.",
+  "example-text": "To measure the volume of the box, measure its length (A), width (B), and height (C) in centimeters, then enter the data into the corresponding fields in the table. After this, the table will show you the volume in m³.",
   "tooltip-a": "Enter the length of side A in centimeters.",
   "length-side-a": "Enter the length of side A (cm):",
   "tooltip-b": "Enter the length of side B in centimeters.",

@@ -1,6 +1,6 @@
 // Версия проекта
 document.addEventListener('DOMContentLoaded', () => {
-    const currentVersion = '0.0.06'; // Задайте актуальную версию здесь
+    const currentVersion = '0.0.08'; // Задайте актуальную версию здесь
     const versionElement = document.getElementById('version-number');
     if (versionElement) {
         versionElement.textContent = currentVersion;
