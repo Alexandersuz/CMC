@@ -204,3 +204,26 @@ function handleInput() {
 
 
 
+
+
+
+// Показ модального окна
+function openClearHistoryModal() {
+    document.getElementById('clear-history-modal').style.display = 'flex'; // Меняем на 'flex', чтобы окно отображалось
+}
+
+// Скрытие модального окна
+function closeModal() {
+    document.getElementById('clear-history-modal').style.display = 'none'; // Скрываем окно
+}
+
+// Подтверждение очистки истории
+function confirmClearHistory() {
+    document.getElementById('history-list').innerHTML = ''; // Очищаем историю
+    closeModal(); // Закрываем модальное окно
+}
+
+// Вызываем показ модального окна только при нажатии на кнопку "Очистить историю"
+function clearHistory() {
+    openClearHistoryModal();
+}

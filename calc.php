@@ -111,6 +111,20 @@
             <p class="math-formula">V = 6 937,5 / 1 000 000 = 0,0069375 ≈ 0,007 м³</p>
         </div>
     </div>
+    
+    
+<!-- Модальное окно для подтверждения очистки -->
+<div id="clear-history-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+        <p>Вы уверены, что хотите очистить историю расчетов?</p>
+        <div class="modal-buttons">
+            <button class="confirm-clear-btn" onclick="confirmClearHistory()">Да</button>
+            <button class="cancel-clear-btn" onclick="closeModal()">Отмена</button>
+        </div>
+    </div>
+</div>
+
+
 
 <div class="version">Версия: <span id="version-number"></span></div>
 
