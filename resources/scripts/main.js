@@ -129,6 +129,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
 // Переключение видимости секции истории расчетов
 function toggleHistory() {
     document.getElementById('history-overlay').classList.toggle('open');
@@ -220,6 +222,7 @@ function closeModal() {
 // Подтверждение очистки истории
 function confirmClearHistory() {
     document.getElementById('history-list').innerHTML = ''; // Очищаем историю
+    updateClearHistoryButtonVisibility(); // Обновляем видимость кнопки после очистки
     closeModal(); // Закрываем модальное окно
 }
 
