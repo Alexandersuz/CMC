@@ -1,9 +1,13 @@
 // Версия проекта
 document.addEventListener('DOMContentLoaded', () => {
     const currentVersion = '0.0.06'; // Задайте актуальную версию здесь
-    document.getElementById('version-number').textContent = currentVersion;
+    const versionElement = document.getElementById('version-number');
+    if (versionElement) {
+        versionElement.textContent = currentVersion;
+    } else {
+        console.error('Элемент с id "version-number" не найден.');
+    }
 });
-
 
 // Функция для инициализации событий на элементах страницы
 function initEventListeners() {
@@ -230,3 +234,70 @@ function confirmClearHistory() {
 function clearHistory() {
     openClearHistoryModal();
 }
+
+
+
+
+
+// Инициализация i18next
+i18next
+  .use(i18nextHttpBackend)
+  .use(i18nextBrowserLanguageDetector)
+  .init({
+    fallbackLng: 'ru', // Язык по умолчанию
+    backend: {
+      loadPath: '/resources/locale/{{lng}}.json'
+    },
+    detection: {
+      order: ['localStorage', 'navigator'],
+      caches: ['localStorage']
+    }
+  }, function(err, t) {
+    if (err) return console.error(err);
+    updateContent();
+  });
+
+// Обновление содержимого
+function updateContent() {
+  document.querySelectorAll('[data-translate]').forEach(function(element) {
+    element.innerText = i18next.t(element.getAttribute('data-translate'));
+  });
+}
+
+// Изменение языка
+function changeLanguage(lng) {
+  i18next.changeLanguage(lng, () => {
+    updateContent();
+    document.querySelector('.language-modal-overlay').classList.remove('open');
+    localStorage.setItem('language', lng);
+  });
+}
+
+// События после загрузки страницы
+document.addEventListener('DOMContentLoaded', function() {
+  const savedLanguage = localStorage.getItem('language');
+  if (savedLanguage) {
+    i18next.changeLanguage(savedLanguage, updateContent);
+  }
+
+    const languageBtn = document.querySelector('.language-btn');
+    const modalOverlay = document.querySelector('.language-modal-overlay');
+    const modalCloseBtn = document.querySelector('.language-modal-close-btn');
+
+    // Открыть модальное окно
+    languageBtn.addEventListener('click', function() {
+        modalOverlay.classList.add('open');
+    });
+
+    // Закрыть модальное окно при клике на кнопку закрытия
+    modalCloseBtn.addEventListener('click', function() {
+        modalOverlay.classList.remove('open');
+    });
+
+    // Закрыть модальное окно при клике за его пределами
+    modalOverlay.addEventListener('click', function(event) {
+        if (event.target === modalOverlay) {
+            modalOverlay.classList.remove('open');
+        }
+    });
+});
