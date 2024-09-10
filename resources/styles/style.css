@@ -413,10 +413,6 @@ body.dark-mode #package-svg-light {
 body.dark-mode #package-svg-dark {
     display: block;
 }
-
-
-
-
 /* Стили для выезжающего окна истории расчетов */
 .history-overlay {
     position: fixed;
@@ -428,11 +424,11 @@ body.dark-mode #package-svg-dark {
     box-shadow: 2px 0 10px var(--theory-overlay-shadow);
     transition: left 0.3s ease-out;
     overflow-y: auto;
-    z-index: 1000;
+    z-index: 1000; /* Уровень над другими элементами */
 }
 
 .history-overlay.open {
-    left: 0;
+    left: 0; /* Окно открыто, сдвигается на экран */
 }
 
 /* Стили для содержимого окна истории */
@@ -447,20 +443,18 @@ body.dark-mode #package-svg-dark {
 .close-history-btn {
     position: absolute;
     top: 10px;
-    right: 10px; /* Перемещаем кнопку в правый верхний угол */
+    right: 10px; /* Перемещение в правый верхний угол */
     background: none;
     border: none;
     font-size: 24px;
     color: var(--close-btn-text);
     cursor: pointer;
-    z-index: 1001; /* Убедитесь, что кнопка находится поверх других элементов */
+    z-index: 1001; /* Поверх других элементов */
 }
 
 .close-history-btn:hover {
-    color: var(--close-btn-hover);
+    color: var(--close-btn-hover); /* Цвет при наведении */
 }
-
-
 
 /* Стили для мини-контейнеров истории расчетов */
 .history-item {
@@ -480,17 +474,18 @@ body.dark-mode #package-svg-dark {
 }
 
 /* Стили для времени */
-.history-time {
+.history-time,
+.history-date {
     font-size: 12px;
-    color: var(--history-time-color);
     align-self: flex-start; /* Выравнивание по верху */
 }
 
-/* Стили для даты */
+.history-time {
+    color: var(--history-time-color);
+}
+
 .history-date {
-    font-size: 12px;
     color: var(--history-date-color);
-    align-self: flex-start; /* Выравнивание по верху */
 }
 
 /* Стили для объема */
@@ -499,10 +494,6 @@ body.dark-mode #package-svg-dark {
     color: var(--history-volume-color);
     margin-top: 8px;
 }
-
-
-
-
 
 /* Стили для кнопки очистки истории */
 .clear-history-btn {
@@ -526,9 +517,6 @@ body.dark-mode #package-svg-dark {
     transform: scale(0.98);
 }
 
-
-
-
 /* Стили для кнопки истории расчетов */
 .history-btn {
     margin-top: 20px;
@@ -551,9 +539,6 @@ body.dark-mode #package-svg-dark {
     transform: scale(0.98);
 }
 
-
-
-
 /* Стили для модального окна */
 .modal-overlay {
     position: fixed;
@@ -563,9 +548,9 @@ body.dark-mode #package-svg-dark {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
     z-index: 1001; /* Поверх всех остальных элементов */
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
 }
 
 /* Содержимое модального окна */
@@ -574,8 +559,8 @@ body.dark-mode #package-svg-dark {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    width: 300px; /* Уменьшаем ширину */
-    max-width: 90%; /* Добавляем ограничение на максимальную ширину */
+    width: 300px; /* Уменьшенная ширина */
+    max-width: 90%; /* Максимальная ширина */
     text-align: center;
 }
 
@@ -591,7 +576,8 @@ body.dark-mode #package-svg-dark {
     justify-content: space-between;
 }
 
-.confirm-clear-btn, .cancel-clear-btn {
+.confirm-clear-btn,
+.cancel-clear-btn {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -618,134 +604,122 @@ body.dark-mode #package-svg-dark {
     background-color: var(--cancel-btn-hover-bg);
 }
 
-
-
-
-
-
-
-
-
-
 /* Стили для кнопки выбора языка */
 .language-btn {
-  position: absolute;
+  position: absolute; /* Абсолютное позиционирование для размещения кнопки в верхнем левом углу */
   top: 20px;
   left: 20px;
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  color: var(--text-primary);
-  transition: color 0.3s ease;
+  background: none; /* Без фона */
+  border: none; /* Без границы */
+  font-size: 20px; /* Размер шрифта */
+  cursor: pointer; /* Курсор в виде руки при наведении */
+  color: var(--text-primary); /* Основной цвет текста */
+  transition: color 0.3s ease; /* Плавное изменение цвета */
 }
 
 .language-btn:hover {
-  color: var(--text-secondary);
+  color: var(--text-secondary); /* Цвет текста при наведении */
 }
 
 /* Стили для модального оверлея переключателя языка */
 .language-modal-overlay {
-  position: fixed;
+  position: fixed; /* Фиксированное позиционирование для покрытия всего экрана */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+  display: none; /* По умолчанию не отображается */
+  justify-content: center; /* Выравнивание по центру по горизонтали */
+  align-items: center; /* Выравнивание по центру по вертикали */
+  z-index: 1000; /* Поверх остальных элементов */
 }
 
-/* Открытое состояние модального оверлея переключателя языка */
+/* Стили для открытого состояния модального оверлея */
 .language-modal-overlay.open {
-  display: flex;
+  display: flex; /* Отображение при открытом состоянии */
 }
 
 /* Стили для содержимого модального окна переключателя языка */
 .language-modal-content {
-  background-color: var(--calculator-bg);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  z-index: 1001;
-  width: 300px;
-  max-width: 90%;
-  position: relative;
+  background-color: var(--calculator-bg); /* Цвет фона содержимого */
+  padding: 20px; /* Отступы внутри модального окна */
+  border-radius: 8px; /* Закругленные углы */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень для создания эффекта подъема */
+  text-align: center; /* Выравнивание текста по центру */
+  z-index: 1001; /* Поверх оверлея */
+  width: 300px; /* Ширина модального окна */
+  max-width: 90%; /* Максимальная ширина */
+  position: relative; /* Относительное позиционирование для кнопки закрытия */
 }
 
 /* Стили для заголовка модального окна */
 .language-modal-content h2 {
-  margin: 0;
-  font-size: 18px;
-  color: var(--text-primary);
-  font-weight: 600;
+  margin: 0; /* Убираем отступы */
+  font-size: 18px; /* Размер шрифта заголовка */
+  color: var(--text-primary); /* Цвет текста заголовка */
+  font-weight: 600; /* Жирность шрифта */
 }
 
 /* Стили для кнопок выбора языка */
 .language-options {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
+  display: flex; /* Используем flexbox для размещения кнопок */
+  flex-direction: column; /* Вертикальное размещение кнопок */
+  gap: 10px; /* Расстояние между кнопками */
+  margin-top: 20px; /* Отступ сверху */
 }
 
 .lang-btn {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  background-color: var(--theory-btn-bg);
-  color: var(--theory-btn-text);
-  transition: background-color 0.2s ease, transform 0.1s ease; /* Уменьшено время эффекта масштабирования */
+  padding: 10px 15px; /* Отступы внутри кнопки */
+  border: none; /* Без границы */
+  border-radius: 5px; /* Закругленные углы */
+  cursor: pointer; /* Курсор в виде руки при наведении */
+  font-size: 16px; /* Размер шрифта */
+  background-color: var(--theory-btn-bg); /* Цвет фона кнопки */
+  color: var(--theory-btn-text); /* Цвет текста кнопки */
+  transition: background-color 0.2s ease, transform 0.1s ease; /* Плавные переходы для фона и масштабирования */
 }
 
 .lang-btn:hover {
-  background-color: var(--theory-btn-hover-bg);
-  transform: scale(1.02); /* Уменьшено масштабирование */
+  background-color: var(--theory-btn-hover-bg); /* Цвет фона при наведении */
+  transform: scale(1.02); /* Эффект масштабирования при наведении */
 }
 
 /* Стили для текста и кнопок в модальном окне */
 .language-modal-content p {
-  margin: 0;
-  font-size: 14px;
-  color: var(--text-secondary);
+  margin: 0; /* Убираем отступы */
+  font-size: 14px; /* Размер шрифта */
+  color: var(--text-secondary); /* Цвет текста */
 }
 
 .language-modal-content button {
-  background-color: var(--theory-btn-bg);
-  color: var(--theory-btn-text);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  padding: 8px 12px;
-  font-size: 14px;
-  transition: background-color 0.2s ease;
+  background-color: var(--theory-btn-bg); /* Цвет фона кнопки */
+  color: var(--theory-btn-text); /* Цвет текста кнопки */
+  border: none; /* Без границы */
+  border-radius: 5px; /* Закругленные углы */
+  cursor: pointer; /* Курсор в виде руки при наведении */
+  padding: 8px 12px; /* Отступы внутри кнопки */
+  font-size: 14px; /* Размер шрифта */
+  transition: background-color 0.2s ease; /* Плавное изменение фона */
 }
 
 .language-modal-content button:hover {
-  background-color: var(--theory-btn-hover-bg);
+  background-color: var(--theory-btn-hover-bg); /* Цвет фона кнопки при наведении */
 }
 
 /* Стили для кнопки закрытия в модальном окне выбора языка */
 .language-modal-close-btn {
-  position: absolute;
+  position: absolute; /* Абсолютное позиционирование для размещения кнопки в правом верхнем углу */
   top: 10px;
-  right: 10px; /* Перемещаем кнопку в правый верхний угол */
-  background: none !important; /* Убираем фон с помощью !important */
-  border: none;
-  font-size: 24px;
+  right: 10px; /* Отступ от правого края */
+  background: none !important; /* Без фона с использованием !important */
+  border: none; /* Без границы */
+  font-size: 24px; /* Размер шрифта */
   color: var(--close-btn-text); /* Цвет текста кнопки */
-  cursor: pointer;
-  z-index: 1001; /* Убедитесь, что кнопка находится поверх других элементов */
+  cursor: pointer; /* Курсор в виде руки при наведении */
+  z-index: 1001; /* Поверх остальных элементов */
 }
 
 .language-modal-close-btn:hover {
-  color: var(--close-btn-hover); /* Цвет при наведении */
+  color: var(--close-btn-hover); /* Цвет текста кнопки при наведении */
 }
-
-
-

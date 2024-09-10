@@ -1,15 +1,17 @@
-// Версия проекта
+// Задайте актуальную версию проекта
+const CURRENT_VERSION = '0.0.09'; 
+
+// Обновление версии на странице после загрузки DOM
 document.addEventListener('DOMContentLoaded', () => {
-    const currentVersion = '0.0.08'; // Задайте актуальную версию здесь
     const versionElement = document.getElementById('version-number');
     if (versionElement) {
-        versionElement.textContent = currentVersion;
+        versionElement.textContent = CURRENT_VERSION;
     } else {
         console.error('Элемент с id "version-number" не найден.');
     }
 });
 
-// Функция для инициализации событий на элементах страницы
+// Инициализация обработчиков событий на элементах страницы
 function initEventListeners() {
     // Привязка обработчиков событий ко всем числовым полям ввода
     document.querySelectorAll('input[type="number"]').forEach(input => {
@@ -20,7 +22,9 @@ function initEventListeners() {
 
     // Привязка обработчика события переключения темы
     const themeSwitcher = document.getElementById('theme-switcher');
-    themeSwitcher.addEventListener('change', handleThemeSwitch);
+    if (themeSwitcher) {
+        themeSwitcher.addEventListener('change', handleThemeSwitch);
+    }
 }
 
 // Обработка изменения значений в полях ввода
@@ -44,8 +48,10 @@ function handleInput() {
 function calculateVolume(sideA, sideB, sideC) {
     const volume = (sideA * sideB * sideC) / 1000000; // Вычисление объема в кубометрах
     const resultDiv = document.getElementById('result');
-    resultDiv.textContent = `Объем: ${volume.toFixed(3)} м³`;
-    resultDiv.classList.add('show'); // Показ результата
+    if (resultDiv) {
+        resultDiv.textContent = `Объем: ${volume.toFixed(3)} м³`;
+        resultDiv.classList.add('show'); // Показ результата
+    }
 }
 
 // Сброс всех полей ввода и результата
@@ -58,14 +64,19 @@ function resetCalculator() {
 // Сброс отображения результата
 function resetResult() {
     const resultDiv = document.getElementById('result');
-    resultDiv.textContent = 'Объем: 0 м³';
-    resultDiv.classList.remove('show'); // Скрытие результата
+    if (resultDiv) {
+        resultDiv.textContent = 'Объем: 0 м³';
+        resultDiv.classList.remove('show'); // Скрытие результата
+    }
 }
 
 // Очистка ошибок в полях ввода
 function clearErrors() {
     document.querySelectorAll('input[type="number"]').forEach(input => input.classList.remove('error'));
-    document.getElementById('error-hint').classList.remove('show-error'); // Скрытие сообщения об ошибке
+    const errorHint = document.getElementById('error-hint');
+    if (errorHint) {
+        errorHint.classList.remove('show-error'); // Скрытие сообщения об ошибке
+    }
 }
 
 // Отображение ошибок в полях ввода
@@ -75,24 +86,36 @@ function displayErrors() {
             input.classList.add('error'); // Добавление класса ошибки
         }
     });
-    document.getElementById('error-hint').classList.add('show-error'); // Показ сообщения об ошибке
+    const errorHint = document.getElementById('error-hint');
+    if (errorHint) {
+        errorHint.classList.add('show-error'); // Показ сообщения об ошибке
+    }
 }
 
 // Показ всплывающей подсказки при фокусе на поле ввода
 function showTooltip(event) {
     const tooltipId = 'tooltip' + event.target.id.charAt(4); // Получение идентификатора подсказки
-    document.getElementById(tooltipId).classList.add('show'); // Показ подсказки
+    const tooltipElement = document.getElementById(tooltipId);
+    if (tooltipElement) {
+        tooltipElement.classList.add('show'); // Показ подсказки
+    }
 }
 
 // Скрытие всплывающей подсказки при потере фокуса
 function hideTooltip(event) {
     const tooltipId = 'tooltip' + event.target.id.charAt(4); // Получение идентификатора подсказки
-    document.getElementById(tooltipId).classList.remove('show'); // Скрытие подсказки
+    const tooltipElement = document.getElementById(tooltipId);
+    if (tooltipElement) {
+        tooltipElement.classList.remove('show'); // Скрытие подсказки
+    }
 }
 
 // Переключение видимости окна Теории
 function toggleTheory() {
-    document.getElementById('theory-overlay').classList.toggle('open'); // Переключение класса открытия
+    const theoryOverlay = document.getElementById('theory-overlay');
+    if (theoryOverlay) {
+        theoryOverlay.classList.toggle('open'); // Переключение класса открытия
+    }
 }
 
 // Обработка переключения темы
@@ -101,7 +124,7 @@ function handleThemeSwitch() {
     const body = document.body;
 
     // Переключение между светлой и темной темой
-    if (themeSwitcher.checked) {
+    if (themeSwitcher && themeSwitcher.checked) {
         body.classList.add('dark-mode');
         localStorage.setItem('theme', 'dark'); // Сохранение темы в локальное хранилище
     } else {
@@ -122,28 +145,34 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(() => {
         if (savedTheme) {
             body.classList.toggle('dark-mode', savedTheme === 'dark');
-            themeSwitcher.checked = savedTheme === 'dark';
+            if (themeSwitcher) {
+                themeSwitcher.checked = savedTheme === 'dark';
+            }
         } else {
             body.classList.remove('dark-mode');
-            themeSwitcher.checked = false;
+            if (themeSwitcher) {
+                themeSwitcher.checked = false;
+            }
         }
     });
 });
 
 
-
-
-
-
-// Переключение видимости секции истории расчетов
+/**
+ * Переключение видимости секции истории расчетов.
+ */
 function toggleHistory() {
     document.getElementById('history-overlay').classList.toggle('open');
     updateClearHistoryButtonVisibility(); // Обновляем видимость кнопки при открытии окна
 }
 
-
-
-// Сохранение расчета в историю
+/**
+ * Сохранение расчета в историю.
+ * @param {number} sideA - Длина первой стороны.
+ * @param {number} sideB - Длина второй стороны.
+ * @param {number} sideC - Длина третьей стороны.
+ * @param {number} volume - Объем расчета.
+ */
 function saveCalculation(sideA, sideB, sideC, volume) {
     const now = new Date();
     const date = now.toLocaleDateString();
@@ -167,10 +196,9 @@ function saveCalculation(sideA, sideB, sideC, volume) {
     updateClearHistoryButtonVisibility(); // Обновляем видимость кнопки после добавления расчета
 }
 
-
-
-
-// Очистка истории расчетов с подтверждением
+/**
+ * Очистка истории расчетов с подтверждением.
+ */
 function clearHistory() {
     if (confirm('Вы уверены, что хотите очистить историю расчетов?')) {
         document.getElementById('history-list').innerHTML = '';
@@ -178,7 +206,9 @@ function clearHistory() {
     }
 }
 
-// Обновление видимости кнопки "Очистить историю"
+/**
+ * Обновление видимости кнопки "Очистить историю".
+ */
 function updateClearHistoryButtonVisibility() {
     const historyList = document.getElementById('history-list');
     const clearHistoryBtn = document.getElementById('clear-history-btn');
@@ -191,7 +221,9 @@ function updateClearHistoryButtonVisibility() {
     }
 }
 
-// Обработка изменения значения в полях ввода
+/**
+ * Обработка изменения значения в полях ввода и сохранение расчета в историю.
+ */
 function handleInput() {
     const sideA = parseFloat(document.getElementById('sideA').value) || 0;
     const sideB = parseFloat(document.getElementById('sideB').value) || 0;
@@ -208,38 +240,39 @@ function handleInput() {
     }
 }
 
-
-
-
-
-
-// Показ модального окна
+/**
+ * Показ модального окна для подтверждения очистки истории.
+ */
 function openClearHistoryModal() {
     document.getElementById('clear-history-modal').style.display = 'flex'; // Меняем на 'flex', чтобы окно отображалось
 }
 
-// Скрытие модального окна
+/**
+ * Скрытие модального окна.
+ */
 function closeModal() {
     document.getElementById('clear-history-modal').style.display = 'none'; // Скрываем окно
 }
 
-// Подтверждение очистки истории
+/**
+ * Подтверждение очистки истории и закрытие модального окна.
+ */
 function confirmClearHistory() {
     document.getElementById('history-list').innerHTML = ''; // Очищаем историю
     updateClearHistoryButtonVisibility(); // Обновляем видимость кнопки после очистки
     closeModal(); // Закрываем модальное окно
 }
 
-// Вызываем показ модального окна только при нажатии на кнопку "Очистить историю"
+/**
+ * Показ модального окна для очистки истории по нажатию кнопки.
+ */
 function clearHistory() {
     openClearHistoryModal();
 }
 
-
-
-
-
-// Инициализация i18next
+/**
+ * Инициализация i18next для мультиязычности.
+ */
 i18next
   .use(i18nextHttpBackend)
   .use(i18nextBrowserLanguageDetector)
@@ -257,14 +290,19 @@ i18next
     updateContent();
   });
 
-// Обновление содержимого
+/**
+ * Обновление содержимого страницы в соответствии с выбранным языком.
+ */
 function updateContent() {
   document.querySelectorAll('[data-translate]').forEach(function(element) {
     element.innerText = i18next.t(element.getAttribute('data-translate'));
   });
 }
 
-// Изменение языка
+/**
+ * Изменение языка интерфейса.
+ * @param {string} lng - Код языка для изменения.
+ */
 function changeLanguage(lng) {
   i18next.changeLanguage(lng, () => {
     updateContent();
@@ -273,31 +311,33 @@ function changeLanguage(lng) {
   });
 }
 
-// События после загрузки страницы
+/**
+ * Обработка событий после загрузки страницы.
+ */
 document.addEventListener('DOMContentLoaded', function() {
   const savedLanguage = localStorage.getItem('language');
   if (savedLanguage) {
     i18next.changeLanguage(savedLanguage, updateContent);
   }
 
-    const languageBtn = document.querySelector('.language-btn');
-    const modalOverlay = document.querySelector('.language-modal-overlay');
-    const modalCloseBtn = document.querySelector('.language-modal-close-btn');
+  const languageBtn = document.querySelector('.language-btn');
+  const modalOverlay = document.querySelector('.language-modal-overlay');
+  const modalCloseBtn = document.querySelector('.language-modal-close-btn');
 
-    // Открыть модальное окно
-    languageBtn.addEventListener('click', function() {
-        modalOverlay.classList.add('open');
-    });
+  // Открытие модального окна для выбора языка
+  languageBtn.addEventListener('click', function() {
+      modalOverlay.classList.add('open');
+  });
 
-    // Закрыть модальное окно при клике на кнопку закрытия
-    modalCloseBtn.addEventListener('click', function() {
-        modalOverlay.classList.remove('open');
-    });
+  // Закрытие модального окна при клике на кнопку закрытия
+  modalCloseBtn.addEventListener('click', function() {
+      modalOverlay.classList.remove('open');
+  });
 
-    // Закрыть модальное окно при клике за его пределами
-    modalOverlay.addEventListener('click', function(event) {
-        if (event.target === modalOverlay) {
-            modalOverlay.classList.remove('open');
-        }
-    });
+  // Закрытие модального окна при клике за его пределами
+  modalOverlay.addEventListener('click', function(event) {
+      if (event.target === modalOverlay) {
+          modalOverlay.classList.remove('open');
+      }
+  });
 });
